@@ -1,0 +1,41 @@
+---
+
+  - name: download clojure
+    get_url: >
+      url={{ clojure_url }}
+      dest=/tmp/{{ clojure_download }}
+      owner={{ user }}
+      group={{ user }}
+      mode=0755
+      force=no
+
+  - name: Wait for download
+    pause: seconds=10
+
+  - name: unzip clojure zip archive
+    unarchive: src=/tmp/{{ clojure_download }} dest=/home/{{ user }} copy=no
+
+  - name: create clojure home variable
+    lineinfile: >
+      dest=/home/{{ user }}/.bashrc
+      line='CLOJURE_HOME=/home/{{ user }}/{{ clojure_version }}'
+      state=present
+
+
+  - name: create clojure path variable
+    lineinfile: >
+      dest=/home/{{ user }}/.bashrc
+      line='export PATH=$CLOJURE_HOME/bin:$PATH'
+      state=present
+
+  - name: download leiningen2
+    get_url: >
+      url={{ leiningen_url }}
+      dest=/usr/local/bin/lein
+      owner={{ user }}
+      group={{ user }}
+      mode=0755
+      force=yes
+
+  - name: Execute leiningen installer script
+    command: /usr/local/bin/lein

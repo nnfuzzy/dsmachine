@@ -1,0 +1,22 @@
+---
+
+  - name: download anaconda installer
+    get_url: >
+      url={{ anaconda_url }}
+      dest=/tmp/{{ anaconda_sh }}
+      owner={{ user }}
+      group={{ user }}
+      mode=0755
+
+  - name: install anaconda
+    command: /tmp/{{ anaconda_sh }} -b -p /home/{{ user }}/anaconda
+    args:
+      creates: /home/{{ user }}/anaconda/bin/conda
+
+  - name: conda updates
+    command: /home/{{ user }}/anaconda/bin/conda update -y --all
+
+  - name: create anaconda path variable
+    lineinfile: dest=/home/{{ user }}/.bashrc
+      line='export PATH="/home/{{ user }}/anaconda/bin:$PATH"'
+      state=present

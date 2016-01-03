@@ -1,0 +1,21 @@
+---
+
+- name: install base apt packages
+  apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
+  with_items:
+    - build-essential
+    - debconf-utils
+    - ntp
+    - htop
+    - git
+    - python-dev
+    - python-pip
+    - python-pycurl
+    - python-software-properties
+    - supervisor
+    - mc
+    - expect
+    - libxml2-dev
+    - libxslt1-dev
+    - vim
+    - emacs

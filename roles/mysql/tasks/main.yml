@@ -1,0 +1,45 @@
+---
+
+- name: Install MySQL
+  apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
+  with_items:
+      - mysql-server
+      - mysql-client
+      - libmysqlclient-dev
+  tags: packages
+
+
+- name: Install Python/Mysql packages
+  pip: name="{{ item }}" state=latest
+  with_items:
+      - mysql-python
+      - simplemysql
+
+- name: Ensure the MySQL service is running
+  service: name=mysql state=restarted enabled=yes
+
+- name: update mysql root password for all root accounts
+  sudo: yes
+  mysql_user:  >
+    name=root
+    password="{{ mysql_root_password }}"
+    login_user=root
+    login_password="{{ mysql_root_password }}"
+    check_implicit_admin=yes
+    priv=*.*:ALL,GRANT
+
+
+- name: create app mysql user
+  mysql_user: >
+    login_user=root
+    login_password="{{ mysql_root_password }}"
+    name="{{ mysql_db }}"
+    password="{{ mysql_password }}"
+    priv=*.*:ALL state=present
+
+- name: Create a new database
+  mysql_db: >
+    login_user=root
+    login_password="{{ mysql_root_password }}"
+    name="{{ mysql_user }}"
+    state=present

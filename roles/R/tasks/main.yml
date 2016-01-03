@@ -1,0 +1,16 @@
+---
+
+ - name: Add r-mirror
+   lineinfile: >
+     dest=/etc/apt/sources.list
+     line='deb {{ r_mirror }}/bin/linux/ubuntu trusty/'
+     state=present
+
+ - name: R | Fetch  signing key
+   command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
+ - name: Install R-base
+   apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
+   with_items:
+     - r-base
+     - r-base-dev

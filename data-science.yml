@@ -1,0 +1,22 @@
+---
+
+- name: Create a data-science dev machine
+  hosts: all
+  sudo: yes
+
+  user: vagrant
+  vars:
+    - update_apt_cache: yes
+
+  vars_files:
+    - env_vars/base.yml
+
+  roles:
+     - { role: base, tags: ['base']}
+     - { role: R, tags: ['R'],  user: vagrant, sudo: yes}
+     - { role: anaconda, tags: ['anaconda'],user: vagrant, sudo: no}
+     - { role: java, tags: ['java']}
+     - { role: mysql, tags: ['mysql']}
+     - { role: mongodb, tags: ['mongodb']}
+     - { role: redis, tags: ['redis']}
+     - { role: clojure, tags: ['clojure']}

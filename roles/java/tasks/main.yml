@@ -1,0 +1,20 @@
+---
+
+ - name: Add the SDK Java8 PPA
+   apt_repository: repo='ppa:webupd8team/java' update_cache=yes
+
+ - name: Copy java licence commit script
+   template: src="commit.sh.j2" dest="/home/{{ user }}/commit.sh"
+
+ - name: Make java licence commit script executeable
+   file: state=file path=/home/{{ user }}/commit.sh mode=0755
+
+ - name: Execute java licence commit script executeable
+   shell: /home/{{ user }}/commit.sh >> commit.log
+   args:
+    chdir: /home/{{ user }}/
+
+
+ - name: Install Java8 from PPA
+   apt: pkg=oracle-java8-installer update_cache={{ update_apt_cache }} force=yes state=installed
+
