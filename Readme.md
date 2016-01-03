@@ -1,9 +1,31 @@
-# Install vagrant
+# dsmachine
+Vagrant/Ansible usage to generate a simple - data science machine -
 
-# Install plugins
-sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
-vagrant plugin install vagrant-vbguest
 
-# Run  provisioning for a tag
-ansible-playbook -t mongodb --private-key=/home/nnfuzzy/project/dev/dmp4vagrant/ansible/.vagrant/machines/default/virtualbox/private_key --user=vagrant --connection=ssh --limit='default' --inventory-file=/home/nnfuzzy/project/dev/dmp4vagrant/ansible/.vagrant/provisioners/ansible/inventory vagrant_provisioning.yml
+## Install necessary packages  (debian based systems)
 
+* Install vagrant
+
+```
+ wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+ sudo dpkg -i vagrant_1.8.1_x86_64.deb
+
+```
+* Install virtualbox
+
+```
+sudo apt-get install virtualbox
+sudo apt-get install virtualbox-dkms
+virtualbox-guest-dkms
+```
+
+* Install ansible
+
+```
+pip install ansible
+```
+
+
+
+#### Contributors
+* [Christian Schulz](https://twitter.com/nnfuzzy)
