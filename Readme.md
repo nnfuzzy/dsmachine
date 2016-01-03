@@ -16,7 +16,7 @@ Vagrant/Ansible usage to generate a simple - data science machine -
 ```
 sudo apt-get install virtualbox
 sudo apt-get install virtualbox-dkms
-virtualbox-guest-dkms
+sudo apt-get install virtualbox-guest-dkms
 ```
 
 * Install ansible
