@@ -25,6 +25,17 @@ sudo apt-get install virtualbox-guest-dkms
 pip install ansible
 ```
 
+### Now generate your data science machine i.e.
+
+You can provision everything direct inside the Vagrant file , but I'd like to have it decoupled
+
+```
+vagrant up
+ansible playbook dsmachine -t base 
+
+```
+
+
 
 
 #### Contributors
