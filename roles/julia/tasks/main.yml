@@ -1,12 +1,12 @@
 ---
 
-#  - name: Download julia
-#    get_url: >
-#      url={{ julia_url }}
-#      dest=/tmp/{{ julia_download }}
-#      owner={{ user }}
-#      group={{ user }}
-#      mode=0755
+  - name: Download julia
+    get_url: >
+      url={{ julia_url }}
+      dest=/tmp/{{ julia_download }}
+      owner={{ user }}
+      group={{ user }}
+      mode=0755
 
   - name: unpack julia  archive
     unarchive: src=/tmp/{{ julia_download }} creates=/home/{{ user }}/julia dest=/home/{{ user }} copy=no

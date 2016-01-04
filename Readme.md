@@ -1,6 +1,7 @@
 # dsmachine
 Vagrant/Ansible usage to generate a simple - data science machine -
-
+* Be aware building spark needs some memory and it looks like 2G isn't enough'!
+* I'll improve the env_vars part asap (DRY)
 
 ## Install necessary packages  (debian based systems)
 
@@ -31,11 +32,12 @@ You can provision everything direct inside the Vagrant file , but I'd like to ha
 
 ```
 vagrant up
+ansible-playbook data-science.yml
+#or single tags
+ansible-playbook data-science.yml --list-tags
 ansible-playbook data-science.yml -t base
 
 ```
-
-
 
 
 #### Contributors

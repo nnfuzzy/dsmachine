@@ -21,3 +21,4 @@
      - { role: mongodb, tags: ['mongodb']}
      - { role: redis, tags: ['redis']}
      - { role: clojure, tags: ['clojure']}
+     - { role: spark, tags: ['spark']}

@@ -17,5 +17,9 @@ leiningen_url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bi
 julia_url: https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.2-linux-x86_64.tar.gz
 julia_download: julia-0.4.2-linux-x86_64.tar.gz
 julia_folder: julia
-
-
+maven_url: http://mirror.dkd.de/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+maven_download: apache-maven-3.3.9-bin.tar.gz
+maven_version: apache-maven-3.3.9
+spark_url: http://apache.openmirror.de/spark/spark-1.5.2/spark-1.5.2.tgz
+spark_download: spark-1.5.2.tgz
+spark_version: spark-1.5.2
