@@ -1,0 +1,28 @@
+---
+
+#  - name: Download julia
+#    get_url: >
+#      url={{ julia_url }}
+#      dest=/tmp/{{ julia_download }}
+#      owner={{ user }}
+#      group={{ user }}
+#      mode=0755
+
+  - name: unpack julia  archive
+    unarchive: src=/tmp/{{ julia_download }} creates=/home/{{ user }}/julia dest=/home/{{ user }} copy=no
+
+  - name: rename folder
+    script: rename.sh
+
+  - name: create julia home variable
+    lineinfile: >
+      dest=/home/{{ user }}/.bashrc
+      line='JULIA_HOME=/home/{{ user }}/{{ julia_folder }}'
+      state=present
+
+
+  - name: create julia path variable
+    lineinfile: >
+      dest=/home/{{ user }}/.bashrc
+      line='export PATH=$JULIA_HOME/bin:$PATH'
+      state=present

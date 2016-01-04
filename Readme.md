@@ -31,7 +31,7 @@ You can provision everything direct inside the Vagrant file , but I'd like to ha
 
 ```
 vagrant up
-ansible playbook dsmachine -t base 
+ansible-playbook data-science.yml -t base
 
 ```
 

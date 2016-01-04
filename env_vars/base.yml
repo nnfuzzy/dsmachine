@@ -14,3 +14,8 @@ clojure_url: http://repo1.maven.org/maven2/org/clojure/clojure/1.7.0/clojure-1.7
 clojure_version: clojure-1.7.0
 clojure_download: clojure-1.7.0.zip
 leiningen_url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+julia_url: https://julialang.s3.amazonaws.com/bin/linux/x64/0.4/julia-0.4.2-linux-x86_64.tar.gz
+julia_download: julia-0.4.2-linux-x86_64.tar.gz
+julia_folder: julia
+
+
