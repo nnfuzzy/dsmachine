@@ -1,44 +1,20 @@
 ---
 
-  - name: Download maven
-    get_url: >
-      url={{ maven_url }}
-      dest=/tmp/{{ maven_download }}
-      owner={{ user }}
-      group={{ user }}
-      mode=0755
-
-
-  - name: unpack maven archive
-    unarchive: src=/tmp/{{ maven_download }}  dest=/home/{{ user }} copy=no
-
-  - name: create maven home variable
-    lineinfile: >
-      dest=/home/{{ user }}/.bashrc
-      line='MAVEN_HOME=/home/{{ user }}/{{ maven_version }}'
-      state=present
-
-  - name: create maven path variable
-    lineinfile: >
-      dest=/home/{{ user }}/.bashrc
-      line='export PATH=$MAVEN_HOME/bin:$PATH'
-      state=present
-
   - name: Download spark
     get_url: >
-      url={{ spark_url }}
-      dest=/tmp/{{ spark_download }}
+      url={{ spark_bin_url }}
+      dest=/tmp/{{ spark_bin_download }}
       owner={{ user }}
       group={{ user }}
       mode=0755
 
   - name: unpack spark archive
-    unarchive: src=/tmp/{{ spark_download }}  dest=/home/{{ user }} copy=no
+    unarchive: src=/tmp/{{ spark_bin_download }}  dest=/home/{{ user }} copy=no
 
   - name: create spark home variable
     lineinfile: >
       dest=/home/{{ user }}/.bashrc
-      line='spark_HOME=/home/{{ user }}/{{ spark_version }}'
+      line='spark_HOME=/home/{{ user }}/{{ spark_bin_version }}'
       state=present
 
   - name: create spark path variable
@@ -46,15 +22,3 @@
       dest=/home/{{ user }}/.bashrc
       line='export PATH=$spark_HOME/bin:$PATH'
       state=present
-
-
-  - name: configure maven
-    lineinfile: >
-      dest=/home/{{ user }}/.bashrc
-      line='export MAVEN_OPTS="-Xmx2596m -XX:MaxPermSize=256M"'
-      state=present
-
-  - name: build spark
-    command:  build/mvn -DskipTests clean package
-    args:
-      chdir: /home/{{ user }}/{{ spark_version }}
