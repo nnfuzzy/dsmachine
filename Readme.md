@@ -37,6 +37,8 @@ ansible-playbook data-science.yml --list-tags
 ansible-playbook data-science.yml -t base
 #or some more
 ansible-playbook data-science.yml -t "base,spark,mongodb"
+#local
+ansible all  -i "localhost," -c local -t base
 ```
 
 

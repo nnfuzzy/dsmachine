@@ -4,8 +4,8 @@ user: vagrant
 base_path: /home/vagrant
 proj_path : /home/vagrant/dsmachine
 r_mirror: http://ftp5.gwdg.de/pub/misc/cran
-anaconda_url: https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh
-anaconda_sh: Anaconda2-2.4.1-Linux-x86_64.sh
+anaconda_url: https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.5.0-Linux-x86_64.sh
+anaconda_sh: Anaconda3-2.5.0-Linux-x86_64.sh
 mysql_db: "dev"
 mysql_user: "dev"
 mysql_root_password: "dev"
