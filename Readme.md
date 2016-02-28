@@ -38,7 +38,7 @@ ansible-playbook data-science.yml -t base
 #or some more
 ansible-playbook data-science.yml -t "base,spark,mongodb"
 #local
-ansible all  -i "localhost," -c local -t base
+ansible-playbook data-science.yml  -i "localhost," -c local -t base
 ```
 
 
