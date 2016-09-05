@@ -1,0 +1,31 @@
+---
+
+- name: Install Postgres
+  apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
+  with_items:
+      - postgresql
+      - libpq-dev
+      - python-psycopg2
+  tags: packages
+
+
+
+- name: ensure database is created
+  become: yes
+  become_user: postgres
+  postgresql_db: name={{postgres_db}}
+
+- name: ensure user has access to database
+  become: yes
+  become_user: postgres
+  postgresql_user: db={{postgres_db}} name={{postgres_user}} password={{postgres_passwd}} priv=ALL
+
+- name: ensure user does not have unnecessary privilege
+  become: yes
+  become_user: postgres
+  postgresql_user: name={{postgres_user}} role_attr_flags=NOSUPERUSER,NOCREATEDB
+
+- name: ensure no other user can access the database
+  become: yes
+  become_user: postgres
+  postgresql_privs: db={{postgres_db}} role=PUBLIC type=database priv=ALL state=absent

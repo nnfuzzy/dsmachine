@@ -22,3 +22,4 @@
      - { role: redis, tags: ['redis']}
      - { role: clojure, tags: ['clojure']}
      - { role: spark, tags: ['spark']}
+     - { role: postgres, tags: ['postgres']}
