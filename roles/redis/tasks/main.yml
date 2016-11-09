@@ -1,6 +1,6 @@
 ---
  - name: Add the Redis PPA
-   apt_repository: repo='deb http://ppa.launchpad.net/chris-lea/redis-server/ubuntu trusty main' state=present
+   apt_repository: repo='deb http://ppa.launchpad.net/chris-lea/redis-server/ubuntu xenial main' state=present
  - name: Install Redis from PPA
    apt: pkg=redis-server state=installed
  - name: Start Redis
