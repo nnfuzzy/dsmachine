@@ -7,8 +7,8 @@ Vagrant/Ansible usage to generate a simple - data science machine -
 * Install vagrant
 
 ```
- wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
- sudo dpkg -i vagrant_1.8.1_x86_64.deb
+ https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb
+ sudo dpkg -i vagrant_2.0.0_x86_64.deb
 
 ```
 * Install virtualbox
@@ -22,7 +22,10 @@ sudo apt-get install virtualbox-guest-dkms
 * Install ansible
 
 ```
-pip install ansible
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
 ```
 
 ### Now generate your data science machine i.e.
@@ -30,14 +33,18 @@ pip install ansible
 You can provision everything direct inside the Vagrant file , but I'd like to have it decoupled
 
 ```
+* Total installation (not recommended)
 vagrant up
 ansible-playbook data-science.yml
-#or single tags
+
+* Single tags
 ansible-playbook data-science.yml --list-tags
 ansible-playbook data-science.yml -t base
-#or some more
+
+* Grouped tags
 ansible-playbook data-science.yml -t "base,spark,mongodb"
-#local
+
+* Install local
 ansible-playbook data-science.yml  -i "localhost," -c local -t base
 ```
 

@@ -4,8 +4,8 @@ user: nnfuzzy
 base_path: /home/vagrant
 proj_path : /home/vagrant/dsmachine
 r_mirror: http://ftp5.gwdg.de/pub/misc/cran
-anaconda_url: https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-anaconda_sh: Anaconda3-4.2.0-Linux-x86_64.sh
+anaconda_url: https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86.sh
+anaconda_sh: Anaconda3-4.4.0-Linux-x86_64.sh
 mysql_db: "dev"
 mysql_user: "dev"
 mysql_root_password: "dev"
@@ -17,9 +17,9 @@ clojure_url: http://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8
 clojure_version: clojure-1.8.0
 clojure_download: clojure-1.8.0.zip
 leiningen_url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
-julia_url: https://julialang.s3.amazonaws.com/bin/linux/x64/0.5/julia-0.5.0-linux-x86_64.tar.gz
-julia_download: julia-0.5.0-linux-x86_64.tar.gz
+julia_url: https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.0-linux-x86_64.tar.gz
+julia_download: julia-0.7.0-linux-x86_64.tar.gz
 julia_folder: julia
-spark_bin_url: http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz
-spark_bin_download: spark-2.0.1-bin-hadoop2.7.tgz
-spark_bin_version:  spark-2.0.1-bin-hadoop2.7
+spark_bin_url: https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
+spark_bin_download: spark-2.2.0-bin-hadoop2.7.tgz
+spark_bin_version:  spark-2.2.0-bin-hadoop2.7
